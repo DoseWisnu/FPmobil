@@ -3,7 +3,7 @@ import locale
 from pyexpat.errors import messages
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
 from flask_socketio import SocketIO, emit
-from mysql import connector
+import mysql.connector
 from flask import session, redirect, url_for
 import os
 
@@ -31,8 +31,8 @@ connection = mysql.connector.connect(
     port='3306'  # Ensure this path is correct
 )
 
-#if db.is_connected():
-#    print('Connected to MySQL Database')
+if connection.is_connected():
+    print('Connected to MySQL Database')
 
 def get_db_connection():
     try:
