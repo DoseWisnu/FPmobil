@@ -10,44 +10,45 @@ import os
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
-#db_config = {
-#    'host': 'localhost',
-#    'user': 'root',
-#    'password': '',  # Sesuaikan password MySQL Anda
-#    'database': 'db_merek'  # Nama database
-#}
+db_config = {
+    'host'='fpccmobil.mysql.database.azure.com',  # Replace with your Azure MySQL host
+    'user'='ccweb',  # Replace with your Azure MySQL username
+    'password'='Mobil0000',  # Replace with your Azure MySQL password
+    'database'='db_merek',  # Replace with your Azure MySQL database name
+    'port'='3306'  # Ensure this path is correct
+}
 
 socketio = SocketIO(app)
 
-# Helper untuk koneksi database
-#def get_db_connection():
-#    conn = mysql.connector.connect(**db_config)
-#    return conn
+#Helper untuk koneksi database
+def get_db_connection():
+    conn = mysql.connector.connect(**db_config)
+    return conn
 
-connection = mysql.connector.connect(
-    host='fpccmobil.mysql.database.azure.com',  # Replace with your Azure MySQL host
-    user='ccweb',  # Replace with your Azure MySQL username
-    password='Mobil0000',  # Replace with your Azure MySQL password
-    database='db_merek',  # Replace with your Azure MySQL database name
-    port='3306'  # Ensure this path is correct
-)
+#connection = mysql.connector.connect(
+#    host='fpccmobil.mysql.database.azure.com',  # Replace with your Azure MySQL host
+#    user='ccweb',  # Replace with your Azure MySQL username
+#    password='Mobil0000',  # Replace with your Azure MySQL password
+#    database='db_merek',  # Replace with your Azure MySQL database name
+#    port='3306'  # Ensure this path is correct
+#)
 
 if connection.is_connected():
     print('Connected to MySQL Database')
 
-def get_db_connection():
-    try:
-        connection = mysql.connector.connect(
-            host=('fpccmobil.mysql.database.azure.com'),
-            user=('ccweb'),
-            password=('Mobil0000'),
-            database=('db_merek'),
-            port='3306'
-        )
-        return connection
-    except Error as e:
-        print(f"Error: {e}")
-        return None
+#def get_db_connection():
+#    try:
+#        connection = mysql.connector.connect(
+#            host=('fpccmobil.mysql.database.azure.com'),
+#            user=('ccweb'),
+#            password=('Mobil0000'),
+#            database=('db_merek'),
+#            port='3306'
+#        )
+#        return connection
+#    except Error as e:
+#        print(f"Error: {e}")
+#        return None
 
 socketio = SocketIO(app)
 
