@@ -10,20 +10,18 @@ import os
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
-db_config = (
-    'host'='fpccmobil.mysql.database.azure.com',  # Replace with your Azure MySQL host
-    'user'='ccweb',  # Replace with your Azure MySQL username
-    'password'='Mobil0000',  # Replace with your Azure MySQL password
-    'database'='db_merek',  # Replace with your Azure MySQL database name
-    'port'='3306'  # Ensure this path is correct
+db = connector.connect(
+    host="fpccmobil.mysql.database.azure.com",  # Replace with your Azure MySQL host
+    user="ccweb",  # Replace with your Azure MySQL username
+    password="Mobil0000",  # Replace with your Azure MySQL password
+    database="db_merek",  # Replace with your Azure MySQL database name
+    port=3306  # Ensure this path is correct
 )
 
-socketio = SocketIO(app)
-
 #Helper untuk koneksi database
-def get_db_connection():
-    conn = mysql.connector.connect(**db_config)
-    return conn
+#def get_db_connection():
+#    conn = mysql.connector.connect(**db_config)
+#    return conn
 
 #connection = mysql.connector.connect(
 #    host='fpccmobil.mysql.database.azure.com',  # Replace with your Azure MySQL host
@@ -33,7 +31,7 @@ def get_db_connection():
 #    port='3306'  # Ensure this path is correct
 #)
 
-if connection.is_connected():
+if db.is_connected():
     print('Connected to MySQL Database')
 
 #def get_db_connection():
