@@ -10,13 +10,13 @@ import os
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
-db_config = {
+db_config = (
     'host'='fpccmobil.mysql.database.azure.com',  # Replace with your Azure MySQL host
     'user'='ccweb',  # Replace with your Azure MySQL username
     'password'='Mobil0000',  # Replace with your Azure MySQL password
     'database'='db_merek',  # Replace with your Azure MySQL database name
     'port'='3306'  # Ensure this path is correct
-}
+)
 
 socketio = SocketIO(app)
 
