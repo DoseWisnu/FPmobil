@@ -25,9 +25,9 @@ socketio = SocketIO(app)
 #    return conn
 
 connection = mysql.connector.connect(
-    host='fpmobilcc.mysql.database.azure.com',  # Replace with your Azure MySQL host
-    user='ccmobil',  # Replace with your Azure MySQL username
-    password='mobil_000',  # Replace with your Azure MySQL password
+    host='fpccmobil.mysql.database.azure.com',  # Replace with your Azure MySQL host
+    user='ccweb',  # Replace with your Azure MySQL username
+    password='Mobil0000',  # Replace with your Azure MySQL password
     database='db_merek',  # Replace with your Azure MySQL database name
     port='3306'  # Ensure this path is correct
 )
@@ -38,9 +38,9 @@ if connection.is_connected():
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
-            host=('fpmobilcc.mysql.database.azure.com'),
-            user=('ccmobil'),
-            password=('mobil_000'),
+            host=('fpccmobil.mysql.database.azure.com'),
+            user=('ccweb'),
+            password=('Mobil0000'),
             database=('db_merek'),
             port='3306'
         )
